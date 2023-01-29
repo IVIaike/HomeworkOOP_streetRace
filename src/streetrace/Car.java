@@ -1,9 +1,13 @@
 package streetrace;
 
-public class Car extends Transport {
+public class Car extends Transport<DriverB> {
 
-    public Car(String brand, String model, double engineVolume) {
-        super(brand, model, engineVolume);
+
+    public Car(String brand,
+               String model,
+               double engineVolume,
+               DriverB driver) {
+        super(brand, model, engineVolume, driver);
     }
 
     @Override

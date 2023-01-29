@@ -1,6 +1,6 @@
 package streetrace;
 
-public interface Competition {
+public interface Competitionable {
     void pitStop();
     void bestTimeLap();
     void maximumSpeed();

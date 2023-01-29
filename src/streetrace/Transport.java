@@ -1,17 +1,28 @@
 package streetrace;
 
-public abstract class Transport implements Competition{
+public abstract class Transport<T extends Driver> implements Competitionable {
     private final String brand;
     private final String model;
     private final double engineVolume;
+    private T driver;
 
 
     public Transport(String brand,
                      String model,
-                     double engineVolume) {
+                     double engineVolume,
+                     T driver) {
         this.brand = validateCarParameters(brand);
         this.model = validateCarParameters(model);
         this.engineVolume = validateEngineVolume(engineVolume);
+        this.driver = driver;
+    }
+
+    public T getDriver() {
+        return driver;
+    }
+
+    public void setDriver(T driver) {
+        this.driver = driver;
     }
 
     public abstract void startMoving();
@@ -47,10 +58,11 @@ public abstract class Transport implements Competition{
         return engineVolume;
     }
 
-    @Override
+
+     @Override
     public String toString() {
         return "Транспортное средство, производитель: " + brand +
-                ", модель: " + model + ", объем двигателя: " + engineVolume;
+                ", модель: " + model + ", объем двигателя: " + engineVolume + ", водитель: " + driver;
     }
 
 }
