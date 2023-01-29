@@ -1,6 +1,6 @@
 package streetrace;
 
-public abstract class Transport {
+public abstract class Transport implements Competition{
     private final String brand;
     private final String model;
     private final double engineVolume;
@@ -14,13 +14,9 @@ public abstract class Transport {
         this.engineVolume = validateEngineVolume(engineVolume);
     }
 
-    public void startMoving() {
-        startMoving();
-    }
+    public abstract void startMoving();
 
-    public void stopMoving() {
-        stopMoving();
-    }
+    public abstract void stopMoving();
 
     public static String validateCarParameters (String value) {
         return validateString(value, "default");
@@ -56,4 +52,5 @@ public abstract class Transport {
         return "Транспортное средство, производитель: " + brand +
                 ", модель: " + model + ", объем двигателя: " + engineVolume;
     }
+
 }
