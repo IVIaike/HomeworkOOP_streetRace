@@ -29,6 +29,8 @@ public abstract class Transport<T extends Driver> implements Competitionable {
 
     public abstract void stopMoving();
 
+    public abstract void printType();
+
     public static String validateCarParameters (String value) {
         return validateString(value, "default");
     }
