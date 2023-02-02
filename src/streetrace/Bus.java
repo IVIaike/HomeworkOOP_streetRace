@@ -2,12 +2,16 @@ package streetrace;
 
 public class Bus extends Transport<DriverD>{
 
+    private Size size;
+
 
     public Bus(String brand,
                String model,
                double engineVolume,
+               Size size,
                DriverD driver) {
         super(brand, model, engineVolume, driver);
+        this.size = size;
     }
 
     @Override
@@ -21,8 +25,23 @@ public class Bus extends Transport<DriverD>{
     }
 
     @Override
+    public void printType() {
+        if (getSize() == null) {
+            System.out.println("Данных по транспортному средству недостаточно");
+        }
+        System.out.println(getSize());
+    }
+
+    @Override
     public void pitStop() {
         System.out.println("Пит-стоп у автобуса");
+    }
+
+    public Size getSize() {
+        return size;
+    }
+    public void setSize(Size size) {
+        this.size = size;
     }
 
     @Override

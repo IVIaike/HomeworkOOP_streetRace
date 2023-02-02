@@ -1,13 +1,23 @@
 package streetrace;
 
 public class Car extends Transport<DriverB> {
-
+    private BodyType bodyType;
 
     public Car(String brand,
                String model,
                double engineVolume,
+               BodyType bodyType,
                DriverB driver) {
         super(brand, model, engineVolume, driver);
+        this.bodyType = bodyType;
+    }
+
+    public BodyType getBodyType() {
+        return bodyType;
+    }
+
+    public void setBodyType(BodyType bodyType) {
+        this.bodyType = bodyType;
     }
 
     @Override
@@ -18,6 +28,14 @@ public class Car extends Transport<DriverB> {
     @Override
     public void stopMoving() {
         System.out.println("Автомобиль марки " + getBrand() + " остановился");
+    }
+
+    @Override
+    public void printType() {
+        if (getBodyType() == null) {
+            System.out.println("Данных по транспортному средству недостаточно");
+        }
+        System.out.println(getBodyType());
     }
 
     @Override
