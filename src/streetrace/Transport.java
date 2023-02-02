@@ -4,6 +4,7 @@ public abstract class Transport<T extends Driver> implements Competitionable {
     private final String brand;
     private final String model;
     private final double engineVolume;
+    private boolean isDiagnosticsPassed;
     private T driver;
 
 
@@ -30,6 +31,10 @@ public abstract class Transport<T extends Driver> implements Competitionable {
     public abstract void stopMoving();
 
     public abstract void printType();
+
+    public boolean isDiagnosticsPassed() {
+        return isDiagnosticsPassed;
+    }
 
     public static String validateCarParameters (String value) {
         return validateString(value, "default");
@@ -60,11 +65,10 @@ public abstract class Transport<T extends Driver> implements Competitionable {
         return engineVolume;
     }
 
-
-     @Override
+    abstract boolean passDiagnostics ();
+    @Override
     public String toString() {
         return "Транспортное средство, производитель: " + brand +
                 ", модель: " + model + ", объем двигателя: " + engineVolume + ", водитель: " + driver;
     }
-
 }
