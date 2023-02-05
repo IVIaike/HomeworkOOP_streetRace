@@ -54,9 +54,30 @@ public class Main {
         System.out.println(car3);
         System.out.println(truck2);
         System.out.println(bus4);
+
+        checkTransport(car3);
+        checkTransport(truck2);
+        checkTransport(bus4);
+
     }
 
     public static void printInfo(Transport<?> transport) {
-        System.out.println("Водитель " + transport.getDriver().getFullName() + " управляет автомобилем " + transport.getBrand() + " " + transport.getModel() + " и будет участвовать в заезде");
+        System.out.println("Водитель " + transport.getDriver().getFullName() + " управляет автомобилем " + transport.getBrand() + " " + transport.getModel() + " статус прохождения технического обслуживания " + transport.isDiagnosticPassed() + " и будет участвовать в заезде");
     }
+
+    public static void checkTransport (Transport... transports) {
+        for (Transport transport : transports) {
+            if (!transport.passDiagnostic()) {
+                try {
+                    transport.getBrand();
+                } catch (TransportTypeException e){
+                    throw new RuntimeException("Еще одно исключение типа");
+                }finally {
+                    System.out.println("Завершено");
+                }
+            }
+        }
+        System.out.println("Транспортное средство прошло диагностику");
+    }
+
 }

@@ -2,7 +2,7 @@ package streetrace;
 
 public class Car extends Transport<DriverB> {
     private BodyType bodyType;
-    private boolean isDiagnosticsPassed;
+    private boolean isDiagnosticPassed;
 
     public Car(String brand,
                String model,
@@ -38,10 +38,24 @@ public class Car extends Transport<DriverB> {
         }
         System.out.println(getBodyType());
     }
+
     @Override
-    boolean passDiagnostics() {
-        return this.isDiagnosticsPassed;
+    boolean passDiagnostic() {
+        return this.isDiagnosticPassed;
     }
+
+    @Override
+    public boolean isDiagnosticPassed() {
+        return isDiagnosticPassed;
+    }
+
+    public void setDiagnosticPassed(boolean diagnosticPassed) {
+        isDiagnosticPassed = diagnosticPassed;
+    }
+    //    @Override
+//    boolean passDiagnostics() {
+//        return this.isDiagnosticsPassed;
+//    }
 
     @Override
     public void pitStop() {
