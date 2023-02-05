@@ -4,6 +4,8 @@ public abstract class Transport<T extends Driver> implements Competitionable {
     private final String brand;
     private final String model;
     private final double engineVolume;
+//    private boolean isDiagnosticsPassed;
+    private boolean passDiagnostic;
     private T driver;
 
 
@@ -17,19 +19,21 @@ public abstract class Transport<T extends Driver> implements Competitionable {
         this.driver = driver;
     }
 
-    public T getDriver() {
-        return driver;
-    }
-
-    public void setDriver(T driver) {
-        this.driver = driver;
-    }
-
     public abstract void startMoving();
 
     public abstract void stopMoving();
 
     public abstract void printType();
+
+    abstract boolean passDiagnostic();
+
+    public boolean isPassDiagnostic() {
+        return passDiagnostic;
+    }
+
+    public void setPassDiagnostic(boolean passDiagnostic) {
+        this.passDiagnostic = passDiagnostic;
+    }
 
     public static String validateCarParameters (String value) {
         return validateString(value, "default");
@@ -48,6 +52,7 @@ public abstract class Transport<T extends Driver> implements Competitionable {
         return value;
     }
 
+
     public String getBrand() {
         return brand;
     }
@@ -60,8 +65,15 @@ public abstract class Transport<T extends Driver> implements Competitionable {
         return engineVolume;
     }
 
+    public T getDriver() {
+        return driver;
+    }
 
-     @Override
+    public void setDriver(T driver) {
+        this.driver = driver;
+    }
+
+    @Override
     public String toString() {
         return "Транспортное средство, производитель: " + brand +
                 ", модель: " + model + ", объем двигателя: " + engineVolume + ", водитель: " + driver;

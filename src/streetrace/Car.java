@@ -2,6 +2,7 @@ package streetrace;
 
 public class Car extends Transport<DriverB> {
     private BodyType bodyType;
+    private boolean passDiagnostic;
 
     public Car(String brand,
                String model,
@@ -36,6 +37,19 @@ public class Car extends Transport<DriverB> {
             System.out.println("Данных по транспортному средству недостаточно");
         }
         System.out.println(getBodyType());
+    }
+
+    @Override
+    public boolean passDiagnostic() {
+        return true;
+    }
+
+    public boolean isPassDiagnostic() {
+        return passDiagnostic;
+    }
+
+    public void setPassDiagnostic(boolean passDiagnostic) {
+        this.passDiagnostic = passDiagnostic;
     }
 
     @Override

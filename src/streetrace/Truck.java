@@ -2,6 +2,7 @@ package streetrace;
 
 public class Truck extends Transport<DriverC>{
     private LoadCapacity loadCapacity;
+    private boolean passDiagnostic;
 
 
     public Truck(String brand,
@@ -37,7 +38,19 @@ public class Truck extends Transport<DriverC>{
             System.out.println("Данных по транспортному средству недостаточно");
         }
         System.out.println(getLoadCapacity());
+    }
 
+    @Override
+    public boolean passDiagnostic() {
+        return true;
+    }
+
+    public boolean isPassDiagnostic() {
+        return passDiagnostic;
+    }
+
+    public void setPassDiagnostic(boolean passDiagnostic) {
+        this.passDiagnostic = passDiagnostic;
     }
 
     @Override

@@ -4,7 +4,6 @@ public class Bus extends Transport<DriverD>{
 
     private Size size;
 
-
     public Bus(String brand,
                String model,
                double engineVolume,
@@ -30,6 +29,11 @@ public class Bus extends Transport<DriverD>{
             System.out.println("Данных по транспортному средству недостаточно");
         }
         System.out.println(getSize());
+    }
+
+    @Override
+    boolean passDiagnostic() throws TransportTypeException {
+        throw new TransportTypeException("Автобусы диагностику проходить не должны");
     }
 
     @Override
