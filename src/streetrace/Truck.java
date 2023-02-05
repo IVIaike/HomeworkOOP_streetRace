@@ -2,7 +2,7 @@ package streetrace;
 
 public class Truck extends Transport<DriverC>{
     private LoadCapacity loadCapacity;
-    private boolean isDiagnosticPassed;
+    private boolean passDiagnostic;
 
 
     public Truck(String brand,
@@ -38,26 +38,20 @@ public class Truck extends Transport<DriverC>{
             System.out.println("Данных по транспортному средству недостаточно");
         }
         System.out.println(getLoadCapacity());
-
     }
 
     @Override
-    boolean passDiagnostic() {
-        return this.isDiagnosticPassed;
+    public boolean passDiagnostic() {
+        return true;
     }
 
-    @Override
-    public boolean isDiagnosticPassed() {
-        return isDiagnosticPassed;
+    public boolean isPassDiagnostic() {
+        return passDiagnostic;
     }
 
-    public void setDiagnosticPassed(boolean diagnosticPassed) {
-        isDiagnosticPassed = diagnosticPassed;
+    public void setPassDiagnostic(boolean passDiagnostic) {
+        this.passDiagnostic = passDiagnostic;
     }
-    //    @Override
-//    boolean passDiagnostics() {
-//        return this.isDiagnosticsPassed;
-//    }
 
     @Override
     public void pitStop() {

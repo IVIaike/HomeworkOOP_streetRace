@@ -1,6 +1,6 @@
 package streetrace;
 
-public class TransportTypeException extends RuntimeException{
+public class TransportTypeException extends RuntimeException {
     public TransportTypeException() {
     }
 

@@ -24,7 +24,7 @@ public class Main {
         Car car4 = new Car("Dodge", "Caliber SE", 2.0, BodyType.SUV, driverB4);
 
         Truck truck1 = new Truck("Volvo", "Freightliner", 2.5, LoadCapacity.N1, driverC1);
-        Truck truck2 = new Truck("Mercedes Benz", "Cosmo", 3.0, LoadCapacity.N2,driverC2);
+        Truck truck2 = new Truck("Mercedes Benz", "Cosmo", 3.0, LoadCapacity.N2, driverC2);
         Truck truck3 = new Truck("Renault", "Skyliner", 2.7, LoadCapacity.N2, driverC3);
         Truck truck4 = new Truck("MAN", "Model 5", 3.2, LoadCapacity.N3, driverC4);
 
@@ -33,51 +33,51 @@ public class Main {
         Bus bus3 = new Bus("Львив", "Львив 3", 2.2, Size.MIDDLE, driverD3);
         Bus bus4 = new Bus("Ssang Yuong", "Flying pigeon", 3.0, Size.VERYBIG, driverD4);
 
-        printInfo(car1);
+//        printInfo(car1);
         car1.printType();
-        printInfo(car2);
-        printInfo(car3);
-        printInfo(car4);
+//        printInfo(car2);
+//        printInfo(car3);
+//        printInfo(car4);
 
-        printInfo(bus1);
-        printInfo(bus2);
-        printInfo(bus3);
-        printInfo(bus4);
-        bus4.printType();
-
-       printInfo(truck1);
-       printInfo(truck2);
-       printInfo(truck3);
-       printInfo(truck4);
-       truck4.printType();
+//        printInfo(truck1);
+//        printInfo(truck2);
+//        printInfo(truck3);
+//        printInfo(truck4);
+        truck4.printType();
 
         System.out.println(car3);
         System.out.println(truck2);
         System.out.println(bus4);
 
-        checkTransport(car3);
-        checkTransport(truck2);
-        checkTransport(bus4);
+//        printInfo(bus1);
+//        printInfo(bus2);
+//        printInfo(bus3);
+//        printInfo(bus4);
+        bus4.printType();
+
+        checkTransport(car2);
+        checkTransport(truck3);
+        checkTransport(bus1);
 
     }
 
     public static void printInfo(Transport<?> transport) {
-        System.out.println("Водитель " + transport.getDriver().getFullName() + " управляет автомобилем " + transport.getBrand() + " " + transport.getModel() + " статус прохождения технического обслуживания " + transport.isDiagnosticPassed() + " и будет участвовать в заезде");
+    System.out.println("Водитель " + transport.getDriver().getFullName() + " управляет автомобилем " + transport.getBrand() + " " + transport.getModel() + " статус прохождения технического обслуживания " + transport.passDiagnostic() + " и будет участвовать в заезде");
     }
 
-    public static void checkTransport (Transport... transports) {
-        for (Transport transport : transports) {
-            if (!transport.passDiagnostic()) {
-                try {
-                    transport.getBrand();
-                } catch (TransportTypeException e){
-                    throw new RuntimeException("Еще одно исключение типа");
-                }finally {
-                    System.out.println("Завершено");
+    public static void checkTransport(Transport... transports) {
+        try {
+            for (Transport transport : transports) {
+                if (transport.passDiagnostic()) {
+                    System.out.println("Транспортное средство: " + transport.getBrand() + " прошло диагностику.");
                 }
             }
         }
-        System.out.println("Транспортное средство прошло диагностику");
+        catch (TransportTypeException e) {
+            throw new RuntimeException("Автобусы диагностику проходить не должны");
+        }
+        finally {
+            System.out.println("Завершено");
+        }
     }
-
 }

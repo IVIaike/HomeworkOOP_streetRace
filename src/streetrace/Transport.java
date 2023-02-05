@@ -5,7 +5,7 @@ public abstract class Transport<T extends Driver> implements Competitionable {
     private final String model;
     private final double engineVolume;
 //    private boolean isDiagnosticsPassed;
-    private boolean isDiagnosticPassed;
+    private boolean passDiagnostic;
     private T driver;
 
 
@@ -25,23 +25,15 @@ public abstract class Transport<T extends Driver> implements Competitionable {
 
     public abstract void printType();
 
-    abstract boolean passDiagnostic () throws TransportTypeException;
+    abstract boolean passDiagnostic();
 
-    public boolean isDiagnosticPassed() {
-        return isDiagnosticPassed;
+    public boolean isPassDiagnostic() {
+        return passDiagnostic;
     }
 
-    public void setDiagnosticPassed(boolean diagnosticPassed) {
-        isDiagnosticPassed = diagnosticPassed;
+    public void setPassDiagnostic(boolean passDiagnostic) {
+        this.passDiagnostic = passDiagnostic;
     }
-    //    abstract boolean passDiagnostics ();
-
-//    public boolean isDiagnosticsPassed() {
-//        return isDiagnosticsPassed;
-//    }
-//    public void checkTransport (){
-//
-//    }
 
     public static String validateCarParameters (String value) {
         return validateString(value, "default");
