@@ -1,7 +1,23 @@
 package streetrace;
 
+import java.util.ArrayList;
+
 public class Main {
+
+
     public static void main(String[] args) {
+
+        ArrayList<Transport> raceTransport = new ArrayList<>();
+
+        raceTransport.add(new Car("Лада", "Веста", 1.6, BodyType.SEDAN, new DriverB("B1st", true, 3)));
+        raceTransport.add(new Car("Audi", "A3",2.0, BodyType.HATCHBACK, new DriverB("B2nd", true, 3)));
+        raceTransport.add(new Truck("Volvo","Freightliner", 2.5,LoadCapacity.N1, new DriverC("C1st", true, 5)));
+        raceTransport.add(new Truck("Renault", "Skyliner", 2.7, LoadCapacity.N2, new DriverC("C3rd", true, 5)));
+        raceTransport.add(new Bus("Ikarus", "Ikar", 2.5, Size.BIG, new DriverD("D2nd", true, 6)));
+        raceTransport.add(new Bus("Ssang Yuong", "Flying pigeon", 3.0, Size.VERYBIG, new DriverD("D4th", true, 6)));
+
+        System.out.println(raceTransport);
+
 
         DriverB driverB1 = new DriverB("B1st", true, 3);
         DriverB driverB2 = new DriverB("B2nd", true, 3);
@@ -34,7 +50,7 @@ public class Main {
         Bus bus4 = new Bus("Ssang Yuong", "Flying pigeon", 3.0, Size.VERYBIG, driverD4);
 
 //        printInfo(car1);
-        car1.printType();
+//        car1.printType();
 //        printInfo(car2);
 //        printInfo(car3);
 //        printInfo(car4);
@@ -43,41 +59,40 @@ public class Main {
 //        printInfo(truck2);
 //        printInfo(truck3);
 //        printInfo(truck4);
-        truck4.printType();
+//        truck4.printType();
 
-        System.out.println(car3);
-        System.out.println(truck2);
-        System.out.println(bus4);
+//        System.out.println(car3);
+//        System.out.println(truck2);
+//        System.out.println(bus4);
 
 //        printInfo(bus1);
 //        printInfo(bus2);
 //        printInfo(bus3);
 //        printInfo(bus4);
-        bus4.printType();
+//        bus4.printType();
 
-        checkTransport(car2);
-        checkTransport(truck3);
-        checkTransport(bus1);
+//        checkTransport(car2);
+//        checkTransport(truck3);
+ //       checkTransport(bus1);
 
     }
 
-    public static void printInfo(Transport<?> transport) {
-    System.out.println("Водитель " + transport.getDriver().getFullName() + " управляет автомобилем " + transport.getBrand() + " " + transport.getModel() + " статус прохождения технического обслуживания " + transport.passDiagnostic() + " и будет участвовать в заезде");
-    }
+//    public static void printInfo(Transport<?> transport) {
+//    System.out.println("Водитель " + transport.getDriver().getFullName() + " управляет автомобилем " + transport.getBrand() + " " + transport.getModel() + " статус прохождения технического обслуживания " + transport.passDiagnostic() + " и будет участвовать в заезде");
+//    }
 
-    public static void checkTransport(Transport... transports) {
-        try {
-            for (Transport transport : transports) {
-                if (transport.passDiagnostic()) {
-                    System.out.println("Транспортное средство: " + transport.getBrand() + " прошло диагностику.");
-                }
-            }
-        }
-        catch (TransportTypeException e) {
-            throw new RuntimeException("Автобусы диагностику проходить не должны");
-        }
-        finally {
-            System.out.println("Завершено");
-        }
-    }
+//    public static void checkTransport(Transport... transports) {
+//        for (Transport transport : transports) {
+//            try {
+//                if (transport.passDiagnostic()) {
+//                    System.out.println("Транспортное средство: " + transport.getBrand() + " прошло диагностику.");
+//                }
+//            } catch (TransportTypeException e) {
+//                throw new RuntimeException("Автобусы диагностику проходить не должны");
+//            } finally {
+//                System.out.println("Завершено");
+//            }
+//        }
+ //   }
+
 }
