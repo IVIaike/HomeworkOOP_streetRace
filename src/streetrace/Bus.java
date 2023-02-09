@@ -1,5 +1,7 @@
 package streetrace;
 
+import java.util.List;
+
 public class Bus extends Transport<DriverD>{
 
     private Size size;
@@ -8,8 +10,9 @@ public class Bus extends Transport<DriverD>{
                String model,
                double engineVolume,
                Size size,
-               DriverD driver) {
-        super(brand, model, engineVolume, driver);
+               DriverD driver,
+               List<Mechanics> mechanicList) {
+        super(brand, model, engineVolume, driver, mechanicList);
         this.size = size;
     }
 
@@ -29,6 +32,11 @@ public class Bus extends Transport<DriverD>{
             System.out.println("Данных по транспортному средству недостаточно");
         }
         System.out.println(getSize());
+    }
+
+    @Override
+    public String repair() {
+        return "Замена рулевой рейки";
     }
 
     @Override

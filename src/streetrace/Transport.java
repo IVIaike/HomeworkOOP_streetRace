@@ -1,5 +1,7 @@
 package streetrace;
 
+import java.util.List;
+
 public abstract class Transport<T extends Driver> implements Competitionable {
     private final String brand;
     private final String model;
@@ -8,15 +10,15 @@ public abstract class Transport<T extends Driver> implements Competitionable {
     private boolean passDiagnostic;
     private T driver;
 
+    private List<Mechanics> mechanicList;
 
-    public Transport(String brand,
-                     String model,
-                     double engineVolume,
-                     T driver) {
-        this.brand = validateCarParameters(brand);
-        this.model = validateCarParameters(model);
-        this.engineVolume = validateEngineVolume(engineVolume);
+
+    public Transport(String brand, String model, double engineVolume, T driver, List<Mechanics> mechanicList) {
+        this.brand = brand;
+        this.model = model;
+        this.engineVolume = engineVolume;
         this.driver = driver;
+        this.mechanicList = mechanicList;
     }
 
     public abstract void startMoving();
@@ -24,6 +26,8 @@ public abstract class Transport<T extends Driver> implements Competitionable {
     public abstract void stopMoving();
 
     public abstract void printType();
+
+    public abstract String repair();
 
     abstract boolean passDiagnostic();
 
@@ -35,6 +39,14 @@ public abstract class Transport<T extends Driver> implements Competitionable {
         this.passDiagnostic = passDiagnostic;
     }
 
+    public boolean checkNeedService () {
+        try {
+            if (passDiagnostic());
+        } catch (TransportTypeException e) {
+            return false;
+        }
+        return true;
+    }
     public static String validateCarParameters (String value) {
         return validateString(value, "default");
     }
@@ -44,7 +56,6 @@ public abstract class Transport<T extends Driver> implements Competitionable {
         }
         return value;
     }
-
     public static double validateEngineVolume(double value) {
         if (value <= 0) {
             return 1.5;
@@ -72,6 +83,8 @@ public abstract class Transport<T extends Driver> implements Competitionable {
     public void setDriver(T driver) {
         this.driver = driver;
     }
+
+
 
     @Override
     public String toString() {
