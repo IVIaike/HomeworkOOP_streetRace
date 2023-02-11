@@ -1,6 +1,6 @@
 package streetrace;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Car extends Transport<DriverB> {
     private BodyType bodyType;
@@ -11,7 +11,7 @@ public class Car extends Transport<DriverB> {
                double engineVolume,
                BodyType bodyType,
                DriverB driver,
-               List<Mechanics> mechanicList) {
+               ArrayList<Mechanics> mechanicList) {
         super(brand, model, engineVolume, driver, mechanicList);
         this.bodyType = bodyType;
     }

@@ -1,6 +1,6 @@
 package streetrace;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Bus extends Transport<DriverD>{
 
@@ -11,7 +11,7 @@ public class Bus extends Transport<DriverD>{
                double engineVolume,
                Size size,
                DriverD driver,
-               List<Mechanics> mechanicList) {
+               ArrayList<Mechanics> mechanicList) {
         super(brand, model, engineVolume, driver, mechanicList);
         this.size = size;
     }

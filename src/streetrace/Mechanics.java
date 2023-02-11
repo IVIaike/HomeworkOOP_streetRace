@@ -1,6 +1,8 @@
 package streetrace;
 
-public class Mechanics {
+import java.util.ArrayList;
+
+public class Mechanics extends ArrayList<Mechanics> {
     private String name;
     private final String company;
 

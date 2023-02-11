@@ -1,7 +1,6 @@
 package streetrace;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class Main {
@@ -9,7 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        List <Mechanics> mechanicsList = new LinkedList<>();
+        List <Mechanics> mechanicsList = new ArrayList<>();
 
         Mechanics mechanic1 = new Mechanics("Андрей Иванов", "Сверли и забивай");
         Mechanics mechanic2 = new Mechanics("Сидор Петров", "Сверли и забивай");
@@ -39,20 +38,20 @@ public class Main {
         DriverD driverD4 = new DriverD("D4th", true, 6);
 
 
-        Car car1 = new Car("Лада", "Веста", 1.6, BodyType.SEDAN, new DriverB("B1st", true, 3), (List<Mechanics>) mechanic1);
-        Car car2 = new Car("Audi", "A3", 2.0, BodyType.HATCHBACK, driverB2, (List<Mechanics>) mechanic2);
-        Car car3 = new Car("Subaru", "Impreza XV", 2.0, BodyType.HATCHBACK, driverB3, (List<Mechanics>) mechanic3);
-        Car car4 = new Car("Dodge", "Caliber SE", 2.0, BodyType.SUV, driverB4, (List<Mechanics>) mechanic4);
+        Car car1 = new Car("Лада", "Веста", 1.6, BodyType.SEDAN, new DriverB("B1st", true, 3), mechanic1);
+        Car car2 = new Car("Audi", "A3", 2.0, BodyType.HATCHBACK, driverB2, mechanic2);
+        Car car3 = new Car("Subaru", "Impreza XV", 2.0, BodyType.HATCHBACK, driverB3, mechanic3);
+        Car car4 = new Car("Dodge", "Caliber SE", 2.0, BodyType.SUV, driverB4, mechanic4);
 
-        Truck truck1 = new Truck("Volvo", "Freightliner", 2.5, LoadCapacity.N1, driverC1,(List<Mechanics>) mechanic1);
-        Truck truck2 = new Truck("Mercedes Benz", "Cosmo", 3.0, LoadCapacity.N2, driverC2,(List<Mechanics>) mechanic2);
-        Truck truck3 = new Truck("Renault", "Skyliner", 2.7, LoadCapacity.N2, driverC3,(List<Mechanics>) mechanic3);
-        Truck truck4 = new Truck("MAN", "Model 5", 3.2, LoadCapacity.N3, driverC4,(List<Mechanics>) mechanic4);
+        Truck truck1 = new Truck("Volvo", "Freightliner", 2.5, LoadCapacity.N1, driverC1, mechanic1);
+        Truck truck2 = new Truck("Mercedes Benz", "Cosmo", 3.0, LoadCapacity.N2, driverC2,mechanic2);
+        Truck truck3 = new Truck("Renault", "Skyliner", 2.7, LoadCapacity.N2, driverC3, mechanic3);
+        Truck truck4 = new Truck("MAN", "Model 5", 3.2, LoadCapacity.N3, driverC4,  mechanic4);
 
-        Bus bus1 = new Bus("Mercedes Benz", "Allegro", 3.5, Size.SMALL, driverD1,(List<Mechanics>) mechanic1);
-        Bus bus2 = new Bus("Ikarus", "Ikar", 2.5, Size.BIG, driverD2, (List<Mechanics>) mechanic2);
-        Bus bus3 = new Bus("Львив", "Львив 3", 2.2, Size.MIDDLE, driverD3,(List<Mechanics>) mechanic3);
-        Bus bus4 = new Bus("Ssang Yuong", "Flying pigeon", 3.0, Size.VERYBIG, driverD4,(List<Mechanics>) mechanic4);
+        Bus bus1 = new Bus("Mercedes Benz", "Allegro", 3.5, Size.SMALL, driverD1, mechanic1);
+        Bus bus2 = new Bus("Ikarus", "Ikar", 2.5, Size.BIG, driverD2, mechanic2);
+        Bus bus3 = new Bus("Львив", "Львив 3", 2.2, Size.MIDDLE, driverD3, mechanic3);
+        Bus bus4 = new Bus("Ssang Yuong", "Flying pigeon", 3.0, Size.VERYBIG, driverD4, mechanic4);
 
         transportList.add(car1);
         transportList.add(car2);
@@ -126,6 +125,7 @@ public class Main {
                 throw new RuntimeException("Автобусы диагностику проходить не должны");
             } finally {
                 System.out.println("Завершено");
+                continue;
             }
         }
     }

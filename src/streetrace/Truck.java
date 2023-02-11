@@ -1,6 +1,6 @@
 package streetrace;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Truck extends Transport<DriverC>{
     private LoadCapacity loadCapacity;
@@ -12,7 +12,7 @@ public class Truck extends Transport<DriverC>{
                  double engineVolume,
                  LoadCapacity loadCapacity,
                  DriverC driver,
-                 List<Mechanics> mechanicList) {
+                 ArrayList<Mechanics> mechanicList) {
         super(brand, model, engineVolume, driver, mechanicList);
         this.loadCapacity = loadCapacity;
     }

@@ -1,5 +1,6 @@
 package streetrace;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Transport<T extends Driver> implements Competitionable {
@@ -10,10 +11,10 @@ public abstract class Transport<T extends Driver> implements Competitionable {
     private boolean passDiagnostic;
     private T driver;
 
-    private List<Mechanics> mechanicList;
+    private ArrayList<Mechanics> mechanicList;
 
 
-    public Transport(String brand, String model, double engineVolume, T driver, List<Mechanics> mechanicList) {
+    public Transport(String brand, String model, double engineVolume, T driver, ArrayList<Mechanics> mechanicList) {
         this.brand = brand;
         this.model = model;
         this.engineVolume = engineVolume;
@@ -84,12 +85,19 @@ public abstract class Transport<T extends Driver> implements Competitionable {
         this.driver = driver;
     }
 
+    public List<Mechanics> getMechanicList() {
+        return mechanicList;
+    }
 
+    public void setMechanicList(ArrayList<Mechanics> mechanicList) {
+        this.mechanicList = mechanicList;
+    }
 
     @Override
     public String toString() {
         return "Транспортное средство, производитель: " + brand +
-                ", модель: " + model + ", объем двигателя: " + engineVolume + ", водитель: " + driver;
+                ", модель: " + model + ", объем двигателя: " + engineVolume + ", водитель: " + driver + " механик:" + mechanicList;
     }
+
 
 }
