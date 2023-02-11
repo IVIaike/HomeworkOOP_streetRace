@@ -68,6 +68,7 @@ public class Main {
 
         Transport transport1FromCollection = transportList.get(0);
         Transport transport2FromCollection = transportList.get(1);
+        Transport transport3FromCollection = transportList.get(2);
         Transport transport5FromCollection = transportList.get(4);
         Transport transport6FromCollection = transportList.get(5);
         Transport transport9FromCollection = transportList.get(8);
@@ -75,6 +76,7 @@ public class Main {
 
         System.out.println(transport1FromCollection);
         System.out.println(transport2FromCollection);
+        System.out.println(transport3FromCollection);
         System.out.println(transport5FromCollection);
         System.out.println(transport6FromCollection);
         System.out.println(transport9FromCollection);
