@@ -1,5 +1,7 @@
 package streetrace;
 
+import java.util.ArrayList;
+
 public class Truck extends Transport<DriverC>{
     private LoadCapacity loadCapacity;
     private boolean passDiagnostic;
@@ -9,8 +11,9 @@ public class Truck extends Transport<DriverC>{
                  String model,
                  double engineVolume,
                  LoadCapacity loadCapacity,
-                 DriverC driver) {
-        super(brand, model, engineVolume, driver);
+                 DriverC driver,
+                 ArrayList<Mechanics> mechanicList) {
+        super(brand, model, engineVolume, driver, mechanicList);
         this.loadCapacity = loadCapacity;
     }
 
@@ -38,6 +41,11 @@ public class Truck extends Transport<DriverC>{
             System.out.println("Данных по транспортному средству недостаточно");
         }
         System.out.println(getLoadCapacity());
+    }
+
+    @Override
+    public String repair() {
+        return "Замена гидравлической жидкости в тормозной системе";
     }
 
     @Override

@@ -1,5 +1,7 @@
 package streetrace;
 
+import java.util.ArrayList;
+
 public class Car extends Transport<DriverB> {
     private BodyType bodyType;
     private boolean passDiagnostic;
@@ -8,8 +10,9 @@ public class Car extends Transport<DriverB> {
                String model,
                double engineVolume,
                BodyType bodyType,
-               DriverB driver) {
-        super(brand, model, engineVolume, driver);
+               DriverB driver,
+               ArrayList<Mechanics> mechanicList) {
+        super(brand, model, engineVolume, driver, mechanicList);
         this.bodyType = bodyType;
     }
 
@@ -37,6 +40,11 @@ public class Car extends Transport<DriverB> {
             System.out.println("Данных по транспортному средству недостаточно");
         }
         System.out.println(getBodyType());
+    }
+
+    @Override
+    public String repair() {
+        return "Ремонт системыподачи топлива";
     }
 
     @Override
