@@ -95,9 +95,35 @@ public class Main {
         carAndMechanicMap.put(bus3,mechanic3);
         carAndMechanicMap.put(bus4,mechanic4);
 
-        for (Map.Entry<Transport,Mechanics> map: carAndMechanicMap.entrySet()) {
-            System.out.println("*" + map.getKey() + " *** " + map.getValue());
+//        for (Map.Entry<Transport,Mechanics> map: carAndMechanicMap.entrySet()) {
+//            System.out.println("*" + map.getKey() + " *** " + map.getValue());
+//        }
+
+        HashSet<String> ddrivers = new HashSet<String>();
+        ddrivers.add("D1st");
+        ddrivers.add("D2nd");
+        ddrivers.add("D3rd");
+        ddrivers.add("D4th");
+        ddrivers.add("D2nd");
+        if (ddrivers.contains("D1st")) {
+            System.out.println("Этот элемент уже есть");
+        } else if (ddrivers.contains("D2nd")){
+            System.out.println("Этот элемент уже есть");
+        }else if (ddrivers.contains("D3rd")){
+            System.out.println("Этот элемент уже есть");
+        }else if (ddrivers.contains("D4th")) {
+            System.out.println("Этот элемент уже есть");
         }
+        System.out.println(ddrivers);
+
+        Iterator<String> iterator = ddrivers.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+
+
+
+
 
 //        printInfo(car1);
 //        car1.printType();
