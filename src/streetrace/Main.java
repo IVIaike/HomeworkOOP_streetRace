@@ -1,7 +1,6 @@
 package streetrace;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
@@ -68,17 +67,60 @@ public class Main {
 
         Transport transport1FromCollection = transportList.get(0);
         Transport transport2FromCollection = transportList.get(1);
+        Transport transport3FromCollection = transportList.get(2);
         Transport transport5FromCollection = transportList.get(4);
         Transport transport6FromCollection = transportList.get(5);
         Transport transport9FromCollection = transportList.get(8);
         Transport transport10FromCollection = transportList.get(9);
 
-        System.out.println(transport1FromCollection);
-        System.out.println(transport2FromCollection);
-        System.out.println(transport5FromCollection);
-        System.out.println(transport6FromCollection);
-        System.out.println(transport9FromCollection);
-        System.out.println(transport10FromCollection);
+//        System.out.println(transport1FromCollection);
+//        System.out.println(transport2FromCollection);
+//        System.out.println(transport3FromCollection);
+//        System.out.println(transport5FromCollection);
+//        System.out.println(transport6FromCollection);
+//        System.out.println(transport9FromCollection);
+//        System.out.println(transport10FromCollection);
+
+        Map<Transport, Mechanics> carAndMechanicMap = new HashMap<>();
+        carAndMechanicMap.put(car1,mechanic1);
+        carAndMechanicMap.put(car2,mechanic2);
+        carAndMechanicMap.put(car3,mechanic3);
+        carAndMechanicMap.put(car4,mechanic4);
+        carAndMechanicMap.put(truck1,mechanic1);
+        carAndMechanicMap.put(truck2,mechanic2);
+        carAndMechanicMap.put(truck3,mechanic3);
+        carAndMechanicMap.put(truck4,mechanic4);
+        carAndMechanicMap.put(bus1,mechanic1);
+        carAndMechanicMap.put(bus2,mechanic2);
+        carAndMechanicMap.put(bus3,mechanic3);
+        carAndMechanicMap.put(bus4,mechanic4);
+
+//        for (Map.Entry<Transport,Mechanics> map: carAndMechanicMap.entrySet()) {
+//            System.out.println("*" + map.getKey() + " *** " + map.getValue());
+//        }
+
+        HashSet<String> ddrivers = new HashSet<String>();
+        ddrivers.add("D1st");
+        ddrivers.add("D2nd");
+        ddrivers.add("D3rd");
+        ddrivers.add("D4th");
+        ddrivers.add("D2nd");
+        if (ddrivers.contains("D1st")) {
+            System.out.println("Этот элемент уже есть");
+        } else if (ddrivers.contains("D2nd")){
+            System.out.println("Этот элемент уже есть");
+        }else if (ddrivers.contains("D3rd")){
+            System.out.println("Этот элемент уже есть");
+        }else if (ddrivers.contains("D4th")) {
+            System.out.println("Этот элемент уже есть");
+        }
+        System.out.println(ddrivers);
+
+        Iterator<String> iterator = ddrivers.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+
 
 
 
