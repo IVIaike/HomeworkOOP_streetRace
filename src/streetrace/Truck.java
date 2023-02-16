@@ -67,6 +67,16 @@ public class Truck extends Transport<DriverC>{
     }
 
     @Override
+    public boolean equals(Object o) {
+        return super.equals(o);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
     public void bestTimeLap() {
         int minTimeLap = 145;
         int maxTimeLap = 343;

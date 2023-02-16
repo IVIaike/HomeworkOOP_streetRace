@@ -2,6 +2,7 @@ package streetrace;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public abstract class Transport<T extends Driver> implements Competitionable {
     private final String brand;
@@ -91,6 +92,19 @@ public abstract class Transport<T extends Driver> implements Competitionable {
 
     public void setMechanicList(ArrayList<Mechanics> mechanicList) {
         this.mechanicList = mechanicList;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Transport)) return false;
+        Transport<?> transport = (Transport<?>) o;
+        return Double.compare(transport.getEngineVolume(), getEngineVolume()) == 0 && getBrand().equals(transport.getBrand()) && getModel().equals(transport.getModel());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getBrand(), getModel(), getEngineVolume());
     }
 
     @Override
